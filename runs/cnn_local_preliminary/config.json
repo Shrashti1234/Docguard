@@ -1,0 +1,20 @@
+{
+  "action": "train",
+  "data": "data/synthetic_v2",
+  "output": "runs/cnn_local_preliminary",
+  "epochs": 3,
+  "batch_size": 8,
+  "height": 200,
+  "width": 160,
+  "channels": 8,
+  "lr": 0.001,
+  "seed": 42,
+  "threads": 4,
+  "cpu": true,
+  "device": "cpu",
+  "positive_weight": 30.0,
+  "parameters": 30081,
+  "torch_version": "2.14.1+cpu",
+  "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+  "provenance": "synthetic_v2; results do not establish real-document performance"
+}

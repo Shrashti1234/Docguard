@@ -1,0 +1,17 @@
+[theme]
+base = "light"
+primaryColor = "#315fc3"
+backgroundColor = "#f2f5f9"
+secondaryBackgroundColor = "#e9eef5"
+textColor = "#203549"
+font = "sans serif"
+
+[server]
+address = "127.0.0.1"
+port = 8501
+maxUploadSize = 20
+headless = true
+fileWatcherType = "none"
+
+[browser]
+gatherUsageStats = false

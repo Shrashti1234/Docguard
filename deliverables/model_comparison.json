@@ -1,0 +1,88 @@
+{
+  "runs": [
+    {
+      "run": "runs\\cnn_local_preliminary",
+      "model": "cnn",
+      "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+      "resolution": [
+        160,
+        200
+      ],
+      "epochs": 3,
+      "freeze_encoder": false,
+      "seed": 42,
+      "batch_size": 8,
+      "learning_rate": 0.001,
+      "metrics": {
+        "precision": 0.18779111429595127,
+        "recall": 0.35654761904761906,
+        "f1": 0.24601032621450364,
+        "iou": 0.1402575681552099,
+        "tp": 4193,
+        "fp": 18135,
+        "fn": 7567,
+        "authentic_false_alarms": 90,
+        "authentic_documents": 90,
+        "authentic_false_positive_rate": 1.0
+      }
+    },
+    {
+      "run": "runs\\transformer_local_preliminary",
+      "model": "transformer",
+      "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+      "resolution": [
+        160,
+        200
+      ],
+      "epochs": 3,
+      "freeze_encoder": true,
+      "seed": 42,
+      "batch_size": 8,
+      "learning_rate": 0.001,
+      "metrics": {
+        "precision": 0.13295785799114693,
+        "recall": 0.6283163265306122,
+        "f1": 0.21947307452401463,
+        "iou": 0.12326299107515222,
+        "tp": 7389,
+        "fp": 48185,
+        "fn": 4371,
+        "authentic_false_alarms": 90,
+        "authentic_documents": 90,
+        "authentic_false_positive_rate": 1.0
+      }
+    },
+    {
+      "run": "runs\\transformer_finetuned_local",
+      "model": "transformer",
+      "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+      "resolution": [
+        160,
+        200
+      ],
+      "epochs": 3,
+      "freeze_encoder": false,
+      "seed": 42,
+      "batch_size": 8,
+      "learning_rate": 6e-05,
+      "metrics": {
+        "precision": 0.16907761072734662,
+        "recall": 0.3538265306122449,
+        "f1": 0.22881495738245808,
+        "iou": 0.12918749417864572,
+        "tp": 4161,
+        "fp": 20449,
+        "fn": 7599,
+        "authentic_false_alarms": 77,
+        "authentic_documents": 90,
+        "authentic_false_positive_rate": 0.8555555555555555
+      }
+    }
+  ],
+  "matching_resolution_and_epoch_budget": true,
+  "caveats": [
+    "Synthetic-only data; inspected test results must not drive hyperparameter tuning.",
+    "Pretraining, architecture and frozen-vs-finetuned encoders differ; no controlled architecture-only claim.",
+    "Pixel F1 and IoU are segmentation scores, not document classification accuracy."
+  ]
+}

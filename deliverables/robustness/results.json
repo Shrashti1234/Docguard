@@ -1,0 +1,734 @@
+{
+  "device": "cpu",
+  "threads": 4,
+  "torch_version": "2.14.1+cpu",
+  "models": [
+    {
+      "run": "runs/cnn_local_preliminary",
+      "model": "cnn",
+      "threshold": 0.9,
+      "checkpoint_sha256": "9f80f751ca8eb33d084e9679e38e790f66b2050304a93e579303ce87d6c85757",
+      "validation_sha256": "5bb951744895529ad92e23ee05a2477344b7973de359d255d2cf4d081456daf5",
+      "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+      "resolution": [
+        160,
+        200
+      ],
+      "conditions": {
+        "clean": {
+          "description": "Unchanged generated image",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.18779111429595127,
+            "recall": 0.35654761904761906,
+            "f1": 0.24601032621450364,
+            "iou": 0.1402575681552099,
+            "tp": 4193,
+            "fp": 18135,
+            "fn": 7567,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6355542791499138,
+              "recall": 0.5470951792336217,
+              "f1": 0.5880164740268368,
+              "iou": 0.41644712081294694,
+              "tp": 2213,
+              "fp": 1269,
+              "fn": 1832
+            },
+            "matched_font": {
+              "precision": 0.26733605271415123,
+              "recall": 0.22780748663101605,
+              "f1": 0.24599393676916415,
+              "iou": 0.1402469135802469,
+              "tp": 852,
+              "fp": 2335,
+              "fn": 2888
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 11058,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24516409476200826,
+              "recall": 0.2837735849056604,
+              "f1": 0.2630597014925373,
+              "iou": 0.1514500537056928,
+              "tp": 1128,
+              "fp": 3473,
+              "fn": 2847
+            }
+          },
+          "evaluation_seconds": 6.219283900049049
+        },
+        "jpeg70": {
+          "description": "Additional JPEG encoding, quality=70",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.18869293194904113,
+            "recall": 0.35391156462585033,
+            "f1": 0.24614838690599403,
+            "iou": 0.14034732760074187,
+            "tp": 4162,
+            "fp": 17895,
+            "fn": 7598,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6390343222803956,
+              "recall": 0.5431396786155748,
+              "f1": 0.5871976480021381,
+              "iou": 0.4156261823685206,
+              "tp": 2197,
+              "fp": 1241,
+              "fn": 1848
+            },
+            "matched_font": {
+              "precision": 0.269573520050923,
+              "recall": 0.22647058823529412,
+              "f1": 0.24614937518163324,
+              "iou": 0.1403479701739851,
+              "tp": 847,
+              "fp": 2295,
+              "fn": 2893
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 10910,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24479964966060871,
+              "recall": 0.28125786163522015,
+              "f1": 0.2617653945211894,
+              "iou": 0.1505926724137931,
+              "tp": 1118,
+              "fp": 3449,
+              "fn": 2857
+            }
+          },
+          "evaluation_seconds": 6.800803699996322,
+          "f1_change_from_clean": 0.00013806069149038813
+        },
+        "jpeg40": {
+          "description": "Additional JPEG encoding, quality=40",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.18835443037974683,
+            "recall": 0.3479591836734694,
+            "f1": 0.24440794385545767,
+            "iou": 0.13921682033137142,
+            "tp": 4092,
+            "fp": 17633,
+            "fn": 7668,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6428150765606596,
+              "recall": 0.5396786155747837,
+              "f1": 0.5867490928638623,
+              "iou": 0.41517687333586917,
+              "tp": 2183,
+              "fp": 1213,
+              "fn": 1862
+            },
+            "matched_font": {
+              "precision": 0.27243172951885564,
+              "recall": 0.22406417112299465,
+              "f1": 0.24589201877934272,
+              "iou": 0.14018066242890598,
+              "tp": 838,
+              "fp": 2238,
+              "fn": 2902
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 10731,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.23684210526315788,
+              "recall": 0.26943396226415095,
+              "f1": 0.2520889725785571,
+              "iou": 0.144223000269324,
+              "tp": 1071,
+              "fp": 3451,
+              "fn": 2904
+            }
+          },
+          "evaluation_seconds": 6.690914199978579,
+          "f1_change_from_clean": -0.001602382359045973
+        },
+        "resize50": {
+          "description": "Downscale to 50%, then restore original dimensions (bilinear)",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.19081007187899635,
+            "recall": 0.3679421768707483,
+            "f1": 0.25129947440253214,
+            "iou": 0.14370640983062105,
+            "tp": 4327,
+            "fp": 18350,
+            "fn": 7433,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6550825369244135,
+              "recall": 0.5592088998763906,
+              "f1": 0.603360896238997,
+              "iou": 0.4320091673032849,
+              "tp": 2262,
+              "fp": 1191,
+              "fn": 1783
+            },
+            "matched_font": {
+              "precision": 0.27303860523038603,
+              "recall": 0.23449197860962567,
+              "f1": 0.25230149597238205,
+              "iou": 0.14436213991769548,
+              "tp": 877,
+              "fp": 2335,
+              "fn": 2863
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 11290,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.25158831003811943,
+              "recall": 0.2988679245283019,
+              "f1": 0.2731976543635736,
+              "iou": 0.15821014782261286,
+              "tp": 1188,
+              "fp": 3534,
+              "fn": 2787
+            }
+          },
+          "evaluation_seconds": 7.502892099961173,
+          "f1_change_from_clean": 0.005289148188028503
+        },
+        "resize25": {
+          "description": "Downscale to 25%, then restore original dimensions (bilinear)",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.19733783106167663,
+            "recall": 0.3681122448979592,
+            "f1": 0.2569368193014215,
+            "iou": 0.14740533914464723,
+            "tp": 4329,
+            "fp": 17608,
+            "fn": 7431,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6949910554561717,
+              "recall": 0.5762669962917182,
+              "f1": 0.630085146641438,
+              "iou": 0.4599447513812155,
+              "tp": 2331,
+              "fp": 1023,
+              "fn": 1714
+            },
+            "matched_font": {
+              "precision": 0.2809061488673139,
+              "recall": 0.2320855614973262,
+              "f1": 0.2541727672035139,
+              "iou": 0.14558872861455888,
+              "tp": 868,
+              "fp": 2222,
+              "fn": 2872
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 10924,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24731888815933464,
+              "recall": 0.2842767295597484,
+              "f1": 0.2645131086142322,
+              "iou": 0.1524143512274076,
+              "tp": 1130,
+              "fp": 3439,
+              "fn": 2845
+            }
+          },
+          "evaluation_seconds": 6.427036900015082,
+          "f1_change_from_clean": 0.010926493086917843
+        },
+        "screenshot_proxy": {
+          "description": "80% down/up resize, Gaussian blur radius=0.4, JPEG quality=75; simulation only",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.18792302587923027,
+            "recall": 0.36122448979591837,
+            "f1": 0.2472282845918813,
+            "iou": 0.14104990536906067,
+            "tp": 4248,
+            "fp": 18357,
+            "fn": 7512,
+            "authentic_false_alarms": 90,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 1.0
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.6384989974219422,
+              "recall": 0.5510506798516688,
+              "f1": 0.5915605095541401,
+              "iou": 0.42001130582249857,
+              "tp": 2229,
+              "fp": 1262,
+              "fn": 1816
+            },
+            "matched_font": {
+              "precision": 0.27436935534101525,
+              "recall": 0.2355614973262032,
+              "f1": 0.2534887066609121,
+              "iou": 0.14514003294892916,
+              "tp": 881,
+              "fp": 2330,
+              "fn": 2859
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 11238,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24394426580921758,
+              "recall": 0.28628930817610065,
+              "f1": 0.26342592592592595,
+              "iou": 0.1516928818981605,
+              "tp": 1138,
+              "fp": 3527,
+              "fn": 2837
+            }
+          },
+          "evaluation_seconds": 12.033546199963894,
+          "f1_change_from_clean": 0.0012179583773776481
+        }
+      },
+      "forward_benchmark": {
+        "batch_size": 1,
+        "warmups": 3,
+        "repeats": 20,
+        "median_ms": 19.70070000970736,
+        "min_ms": 16.739699989557266,
+        "max_ms": 31.781400030013174,
+        "scope": "Model forward only on one fixed input; not end-to-end app latency"
+      },
+      "clean_reproduces_saved_pixel_counts": true,
+      "weights_and_threshold_unchanged": true
+    },
+    {
+      "run": "runs/transformer_finetuned_local",
+      "model": "transformer",
+      "threshold": 0.8,
+      "checkpoint_sha256": "8ee1328afa2e67fbafd2cc2304eda20ba4ffe01e7e21a39e96edaa3690e25a68",
+      "validation_sha256": "46e4b05aea41364d705835314ad44b5cfcef29d787fd4277ff3a9615ba563247",
+      "manifest_sha256": "45baf55b1d465746d829141cd917a2ec603719f95cc8f54d95ad0ecace09c85f",
+      "resolution": [
+        160,
+        200
+      ],
+      "conditions": {
+        "clean": {
+          "description": "Unchanged generated image",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.16907761072734662,
+            "recall": 0.3538265306122449,
+            "f1": 0.22881495738245808,
+            "iou": 0.12918749417864572,
+            "tp": 4161,
+            "fp": 20449,
+            "fn": 7599,
+            "authentic_false_alarms": 77,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.8555555555555555
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.41627336228053613,
+              "recall": 0.5451174289245982,
+              "f1": 0.4720616570327553,
+              "iou": 0.308953341740227,
+              "tp": 2205,
+              "fp": 3092,
+              "fn": 1840
+            },
+            "matched_font": {
+              "precision": 0.2522721013494905,
+              "recall": 0.2449197860962567,
+              "f1": 0.2485415818749152,
+              "iou": 0.14190549961270332,
+              "tp": 916,
+              "fp": 2715,
+              "fn": 2824
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 11502,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24880382775119617,
+              "recall": 0.26163522012578616,
+              "f1": 0.2550582464745555,
+              "iou": 0.14617006324666199,
+              "tp": 1040,
+              "fp": 3140,
+              "fn": 2935
+            }
+          },
+          "evaluation_seconds": 5.167083100008313
+        },
+        "jpeg70": {
+          "description": "Additional JPEG encoding, quality=70",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.16656706904107407,
+            "recall": 0.35552721088435374,
+            "f1": 0.22685222864273893,
+            "iou": 0.127937576499388,
+            "tp": 4181,
+            "fp": 20920,
+            "fn": 7579,
+            "authentic_false_alarms": 78,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.8666666666666667
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.41025641025641024,
+              "recall": 0.5458590852904821,
+              "f1": 0.4684417099819667,
+              "iou": 0.30585953733204047,
+              "tp": 2208,
+              "fp": 3174,
+              "fn": 1837
+            },
+            "matched_font": {
+              "precision": 0.24716981132075472,
+              "recall": 0.24518716577540106,
+              "f1": 0.2461744966442953,
+              "iou": 0.14036430430123986,
+              "tp": 917,
+              "fp": 2793,
+              "fn": 2823
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 11759,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.2484705882352941,
+              "recall": 0.2656603773584906,
+              "f1": 0.25677811550151974,
+              "iou": 0.14730087878365183,
+              "tp": 1056,
+              "fp": 3194,
+              "fn": 2919
+            }
+          },
+          "evaluation_seconds": 5.602791699988302,
+          "f1_change_from_clean": -0.001962728739719144
+        },
+        "jpeg40": {
+          "description": "Additional JPEG encoding, quality=40",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.16387856257744735,
+            "recall": 0.3598639455782313,
+            "f1": 0.22520221370796084,
+            "iou": 0.12688894219237226,
+            "tp": 4232,
+            "fp": 21592,
+            "fn": 7528,
+            "authentic_false_alarms": 80,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.8888888888888888
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.4036814288317842,
+              "recall": 0.5475896168108776,
+              "f1": 0.46475031472933276,
+              "iou": 0.3027196938636053,
+              "tp": 2215,
+              "fp": 3272,
+              "fn": 1830
+            },
+            "matched_font": {
+              "precision": 0.24679403297566083,
+              "recall": 0.2521390374331551,
+              "f1": 0.249437905039016,
+              "iou": 0.14249017830160168,
+              "tp": 943,
+              "fp": 2878,
+              "fn": 2797
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 12144,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.24565416285452882,
+              "recall": 0.270188679245283,
+              "f1": 0.25733796573619266,
+              "iou": 0.14766946239516018,
+              "tp": 1074,
+              "fp": 3298,
+              "fn": 2901
+            }
+          },
+          "evaluation_seconds": 5.644749099970795,
+          "f1_change_from_clean": -0.0036127436744972374
+        },
+        "resize50": {
+          "description": "Downscale to 50%, then restore original dimensions (bilinear)",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.18946712371455282,
+            "recall": 0.31020408163265306,
+            "f1": 0.23524859740762236,
+            "iou": 0.133304099978075,
+            "tp": 3648,
+            "fp": 15606,
+            "fn": 8112,
+            "authentic_false_alarms": 71,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.7888888888888889
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.4664558391687373,
+              "recall": 0.5105067985166872,
+              "f1": 0.48748819641170915,
+              "iou": 0.3223037302949899,
+              "tp": 2065,
+              "fp": 2362,
+              "fn": 1980
+            },
+            "matched_font": {
+              "precision": 0.26404109589041097,
+              "recall": 0.20614973262032085,
+              "f1": 0.23153153153153153,
+              "iou": 0.13092205807437596,
+              "tp": 771,
+              "fp": 2149,
+              "fn": 2969
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 8819,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.26295336787564766,
+              "recall": 0.20427672955974843,
+              "f1": 0.22993062438057482,
+              "iou": 0.12989921612541994,
+              "tp": 812,
+              "fp": 2276,
+              "fn": 3163
+            }
+          },
+          "evaluation_seconds": 6.736562200007029,
+          "f1_change_from_clean": 0.006433640025164278
+        },
+        "resize25": {
+          "description": "Downscale to 25%, then restore original dimensions (bilinear)",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.2628185127405096,
+            "recall": 0.2148809523809524,
+            "f1": 0.23644444444444446,
+            "iou": 0.13407258064516128,
+            "tp": 2527,
+            "fp": 7088,
+            "fn": 9233,
+            "authentic_false_alarms": 43,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.4777777777777778
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.5809935205183585,
+              "recall": 0.39901112484548823,
+              "f1": 0.4731056719917925,
+              "iou": 0.3098483394125552,
+              "tp": 1614,
+              "fp": 1164,
+              "fn": 2431
+            },
+            "matched_font": {
+              "precision": 0.33078393881453155,
+              "recall": 0.13877005347593582,
+              "f1": 0.19551704652476926,
+              "iou": 0.10835073068893528,
+              "tp": 519,
+              "fp": 1050,
+              "fn": 3221
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 3955,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.3000761614623001,
+              "recall": 0.0991194968553459,
+              "f1": 0.14901664145234494,
+              "iou": 0.0805067429505517,
+              "tp": 394,
+              "fp": 919,
+              "fn": 3581
+            }
+          },
+          "evaluation_seconds": 7.319477100041695,
+          "f1_change_from_clean": 0.007629487061986379
+        },
+        "screenshot_proxy": {
+          "description": "80% down/up resize, Gaussian blur radius=0.4, JPEG quality=75; simulation only",
+          "samples": 180,
+          "metrics": {
+            "precision": 0.17835626292599585,
+            "recall": 0.3373299319727891,
+            "f1": 0.2333392153402741,
+            "iou": 0.13207924088563341,
+            "tp": 3967,
+            "fp": 18275,
+            "fn": 7793,
+            "authentic_false_alarms": 74,
+            "authentic_documents": 90,
+            "authentic_false_positive_rate": 0.8222222222222222
+          },
+          "by_edit_type": {
+            "font_mismatch": {
+              "precision": 0.43777867855695174,
+              "recall": 0.5339925834363412,
+              "f1": 0.48112261944537255,
+              "iou": 0.3167619885613726,
+              "tp": 2160,
+              "fp": 2774,
+              "fn": 1885
+            },
+            "matched_font": {
+              "precision": 0.25677302829620713,
+              "recall": 0.22807486631016044,
+              "f1": 0.24157462475219485,
+              "iou": 0.1373812208085038,
+              "tp": 853,
+              "fp": 2469,
+              "fn": 2887
+            },
+            "none": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "iou": 0.0,
+              "tp": 0,
+              "fp": 10308,
+              "fn": 0
+            },
+            "patch_tone": {
+              "precision": 0.25938009787928223,
+              "recall": 0.24,
+              "f1": 0.2493139945119561,
+              "iou": 0.14240931482310792,
+              "tp": 954,
+              "fp": 2724,
+              "fn": 3021
+            }
+          },
+          "evaluation_seconds": 11.885289099998772,
+          "f1_change_from_clean": 0.004524257957816025
+        }
+      },
+      "forward_benchmark": {
+        "batch_size": 1,
+        "warmups": 3,
+        "repeats": 20,
+        "median_ms": 34.6527999790851,
+        "min_ms": 28.610299981664866,
+        "max_ms": 48.54519997024909,
+        "scope": "Model forward only on one fixed input; not end-to-end app latency"
+      },
+      "clean_reproduces_saved_pixel_counts": true,
+      "weights_and_threshold_unchanged": true
+    }
+  ],
+  "caveats": [
+    "Synthetic-only generated data.",
+    "Screenshot condition is a proxy, not a real screenshot test.",
+    "Perturbations occur at native document size before model input resize.",
+    "F1 may rise under degradation; smoothing artifacts is not proof of better generalization.",
+    "Thresholds and weights remain fixed; no robustness tuning is performed."
+  ]
+}

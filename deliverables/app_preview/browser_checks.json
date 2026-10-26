@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "Default trained Transformer inference completed",
+    "Browser PDF and ZIP downloads completed",
+    "Side-by-side view rendered",
+    "Model change cleared prior result; CNN inference completed",
+    "Real PNG upload and inference completed",
+    "Two-page PDF upload, page selection and inference completed",
+    "Page change cleared prior result",
+    "Invalid PDF handled without a stack trace",
+    "Hindi example rendered and inferred; Hindi language recorded in exported review",
+    "Real Hindi PDF upload and inference completed",
+    "Marathi example rendered and inference completed",
+    "Tamil example rendered and inference completed",
+    "Bengali example rendered and inference completed",
+    "390px mobile inference completed with no horizontal overflow"
+  ],
+  "browser_errors": []
+}

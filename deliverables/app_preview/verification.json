@@ -1,0 +1,14 @@
+{
+  "unit_tests_passed": 14,
+  "main_browser_flows_passed": 14,
+  "interface_language_checks_passed": 7,
+  "browser_errors": [],
+  "interface_languages": [
+    "English",
+    "Hindi",
+    "Marathi",
+    "Tamil",
+    "Bengali"
+  ],
+  "pdf_report_language": "English"
+}

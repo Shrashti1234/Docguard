@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "hi: localized controls and existing result/view/document language preserved; export metadata verified",
+    "mr: localized controls and existing result/view/document language preserved; export metadata verified",
+    "ta: localized controls and existing result/view/document language preserved; export metadata verified",
+    "bn: localized controls and existing result/view/document language preserved; export metadata verified",
+    "en: localized controls and existing result/view/document language preserved; export metadata verified",
+    "Uploaded Hindi PDF and computed result preserved after interface-language switch",
+    "Tamil mobile controls visible without horizontal overflow"
+  ],
+  "browser_errors": []
+}
