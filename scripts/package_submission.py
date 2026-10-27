@@ -14,7 +14,7 @@ with ZipFile(OUT,'w',compression=ZIP_DEFLATED) as z:
     z.writestr('DocGuard/PACKAGE_MANIFEST.json',json.dumps(manifest,indent=2))
 with ZipFile(OUT) as z:
     assert z.testzip() is None
-    for required in ('app.py','runs/transformer_finetuned_local/best.pt','deliverables/submission/DocGuard_Report.pdf','deliverables/submission/DocGuard_Assessment.pptx'):
+    for required in ('app.py','runs/transformer_finetuned_local/best.pt','deliverables/submission/DocGuard_Report.pdf','deliverables/submission/DocGuard_Professional_Final.pptx','deliverables/submission/DocGuard_Professional_Final.pdf'):
         assert 'DocGuard/'+required in z.namelist(),required
     assert len([n for n in z.namelist() if '/data/synthetic_v2/images/' in n])==1200
 print(f'Verified {len(manifest)} files; {OUT.stat().st_size/1024**2:.1f} MB; {OUT}')
