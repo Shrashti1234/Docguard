@@ -53,11 +53,20 @@ class InferenceChecks(unittest.TestCase):
             document_info(encrypted, 'locked.pdf')
         with self.assertRaisesRegex(DocumentInputError, '20 MB'):
             document_info(b'x'*(MAX_BYTES+1), 'large.png')
-        with patch('docguard.inference.MAX_PIXELS', 3):
+        with patch('docguard.inference.MAX_SOURCE_PIXELS', 3):
             with self.assertRaisesRegex(DocumentInputError, 'megapixel'):
                 document_info(png_bytes(Image.new('RGB', (4, 4))), 'large_pixels.png')
         with tempfile.TemporaryDirectory() as root:
             self.assertEqual(available_models(Path(root)), [])
+
+    def test_phone_image_resize_and_additional_formats(self):
+        for fmt in ('WEBP', 'BMP', 'TIFF'):
+            buffer = io.BytesIO()
+            Image.new('RGB', (100, 80), 'white').save(buffer, format=fmt)
+            with patch('docguard.inference.MAX_PIXELS', 2000):
+                image = document_page(buffer.getvalue(), 'phone.'+fmt.lower())
+            self.assertLessEqual(image.width*image.height, 2000)
+            self.assertEqual(image.mode, 'RGB')
 
     def test_overlay_and_export_contents(self):
         image = Image.new('RGB', (80, 100), 'white')

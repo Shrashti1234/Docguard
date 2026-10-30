@@ -16,7 +16,10 @@ with pymupdf.open() as fixture:
 
 checks, errors = [], []
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
+    try:
+        browser = p.chromium.launch(headless=True)
+    except Exception:
+        browser = p.chromium.launch(channel='chrome', headless=True)
     page = browser.new_page(viewport={'width':1440, 'height':1050}, device_scale_factor=1)
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.goto('http://127.0.0.1:8501', wait_until='domcontentloaded')

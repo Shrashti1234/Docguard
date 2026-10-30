@@ -15,6 +15,7 @@ import torch
 
 MAX_BYTES = 20 * 1024 * 1024
 MAX_PIXELS = 20_000_000
+MAX_SOURCE_PIXELS = 80_000_000
 MAX_PAGES = 20
 ROOT = Path(__file__).resolve().parents[1]
 LIMITATION = 'Research prototype trained on synthetic documents. High false-positive rates; highlights do not prove tampering or authenticity.'
@@ -50,10 +51,16 @@ def decode_image(data):
         with warnings.catch_warnings():
             warnings.simplefilter('error', Image.DecompressionBombWarning)
             with Image.open(io.BytesIO(data)) as source:
-                if source.format not in ('JPEG', 'PNG'):
-                    raise DocumentInputError('Use a JPG, PNG or PDF document.')
-                if source.width * source.height > MAX_PIXELS:
-                    raise DocumentInputError('Image exceeds the 20 megapixel limit. Resize it before uploading.')
+                if source.format not in ('JPEG', 'PNG', 'WEBP', 'BMP', 'TIFF'):
+                    raise DocumentInputError('Use a JPG, PNG, WEBP, BMP, TIFF or PDF document.')
+                if source.width * source.height > MAX_SOURCE_PIXELS:
+                    raise DocumentInputError('Image exceeds the 80 megapixel limit. Resize it before uploading.')
+                # Phone photos often exceed 20 MP. Reduce them before RGB/alpha
+                # copies instead of rejecting an otherwise valid document.
+                pixels = source.width * source.height
+                if pixels > MAX_PIXELS:
+                    scale = (MAX_PIXELS / pixels) ** .5
+                    source.thumbnail((max(1, int(source.width*scale)), max(1, int(source.height*scale))), Image.Resampling.LANCZOS)
                 corrected = ImageOps.exif_transpose(source).convert('RGBA')
                 paper = Image.new('RGBA', corrected.size, 'white')
                 paper.alpha_composite(corrected)
@@ -61,7 +68,7 @@ def decode_image(data):
     except DocumentInputError:
         raise
     except (UnidentifiedImageError, OSError, ValueError, Image.DecompressionBombWarning, Image.DecompressionBombError) as exc:
-        raise DocumentInputError('This image could not be decoded. Try another JPG or PNG.') from exc
+        raise DocumentInputError('This image could not be decoded. Try saving it as JPG or PNG. For HEIC photos, export to JPG first.') from exc
 
 
 def document_info(data, filename):

@@ -2,6 +2,7 @@
 import hashlib
 import html
 import json
+import logging
 from pathlib import Path
 import streamlit as st
 from docguard.i18n import LANGUAGES, translate
@@ -86,10 +87,19 @@ with st.sidebar:
     source_mode = choice(st.radio,'Document source', ['Example document', 'Upload document'],'document_source',format_func=t)
     if source_mode == 'Upload document':
         st.caption(t('Choose a document'))
-        upload = st.file_uploader('Document file', type=['jpg', 'jpeg', 'png', 'pdf'], label_visibility='collapsed', key='document_upload')
+        upload_version = st.session_state.get('upload_version', 0)
+        upload = st.file_uploader('Document file', type=['jpg', 'jpeg', 'png', 'webp', 'bmp', 'tif', 'tiff', 'pdf'], label_visibility='collapsed', key=f'document_upload_{upload_version}')
         st.caption(t('Up to 20 MB. PDFs: up to 20 pages, reviewed one page at a time.'))
+        st.caption('JPG · PNG · WEBP · BMP · TIFF · PDF. Large photos are resized automatically. Export HEIC as JPG first.')
         data = upload.getvalue() if upload else None
         filename = upload.name if upload else None
+        if upload is not None:
+            st.caption(f'{upload.name} · {upload.size/1024:.0f} KB')
+            if st.button('Clear upload / try another file', key='clear_upload'):
+                st.session_state['upload_version'] = upload_version + 1
+                for name in ('prediction', 'bundle', 'review_identity'):
+                    st.session_state.pop(name, None)
+                st.rerun()
     else:
         examples = {'Edited fictional receipt':ROOT/'data/synthetic_v2/images/00510_tampered.png',
                     'Original fictional receipt':ROOT/'data/synthetic_v2/images/00510_authentic.png',
@@ -181,9 +191,11 @@ with review_tab:
                 st.session_state['prediction'] = prediction
                 st.session_state['bundle'] = bundle
             except Exception as exc:
+                logging.exception('DocGuard analysis failed for %s using %s', filename, model_info['path'])
                 st.error(t('The page could not be analysed. Check that the trained checkpoint and app dependencies are available.'))
+                st.warning('Try CNN U-Net in Review model, then click Analyse page again. In VS Code, use Run DocGuard so the correct Python environment is selected.')
                 with st.expander(t('Technical error')):
-                    st.code(str(exc))
+                    st.code(f'{type(exc).__name__}: {exc}')
         prediction = st.session_state.get('prediction')
         bundle = st.session_state.get('bundle')
         opacity_key = 'overlay_opacity_'+interface_language
